@@ -1,0 +1,466 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-snap-type: y none;
+}
+
+:root {
+    --light-bg: rgba(230, 70, 70, 0.1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: .1rem solid rgba(255, 255, 255, .1);
+    --border-top: .1rem solid rgba(255, 255, 255, .3);
+    --border-left: .1rem solid rgba(255, 255, 255, .3);
+}
+body{
+    width: 100vw;
+    min-height: 200vh;
+    background-color: #171616;
+    color: aliceblue;
+    overflow-x: hidden;
+
+}
+
+header{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:justify;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
+}
+
+.header-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.ani1{
+    animation: hdr-anim-1 2s linear;
+    animation-timeline: view();
+    animation-range: exit;
+    transform-origin: top;
+}
+@keyframes hdr-anim-1 {
+    25%{
+        opacity: 1;
+    }
+    85%, 100%{
+        opacity: 0;
+        scale: 2;
+    }
+}
+.ani2{
+    animation: hdr-anim-2 2s linear;
+    animation-timeline: view();
+    animation-range-start: entry;
+    animation-range-end: exit;
+    transform-origin: right;
+}
+@keyframes hdr-anim-2 {
+    0%{
+        opacity: 0;
+    }
+    85%, 100%{
+        scale: 2;
+        opacity: 1;
+    }
+}
+
+.ani3{
+    animation: hdr-anim-2 2s linear;
+    animation-timeline: view();
+    animation-range-start: entry;
+    animation-range-end: exit;
+    transform-origin: left;
+}
+@keyframes hdr-anim-3 {
+    0%{
+        opacity: 0;
+    }
+    85%, 100%{
+        scale: 2;
+        opacity: 1;
+    }
+}
+.header-image img{
+    height: 100%;
+    width: 100%;
+    
+}
+.header-content{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: aliceblue;
+    text-shadow: 2px 2px 2px black;
+}
+main{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+}
+.area{
+    width: 100%;
+    height: 100vh;
+}
+.container-text{
+    width: 80%;
+    height: 100vh;
+    font-size: 1.4rem;
+    color: aliceblue;
+}
+.container{
+    width: 80%;
+    padding: 2rem;
+    background-color: #171616;
+    border-radius: 12px;
+    box-shadow: 2px 4px 2px aliceblue;
+}
+.container h1{
+    margin-bottom: 3rem;
+}
+.container div{
+    animation: dis-ani linear;
+    animation-timeline: view();
+    animation-range: entry;
+}
+@keyframes dis-anim {
+    from{
+        width: 0;
+        overflow: hidden;
+        display: none;
+    }
+    to{
+        width: 100%;
+        display: block;
+        overflow-x: scroll;
+    }
+}
+
+.card-container{
+    margin-top: 10rem;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    place-content: center;   
+}
+
+
+.card-container .cards {
+    width: 25rem;
+    background-color: rgba(230, 70, 70, 0.1);
+    border-radius: .5rem;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    border-top: var(--border-top);
+    border-left: var(--border-left);
+    box-shadow: var(--box-shadow);
+    /* animation: card linear;
+    animation-timeline: view();
+    animation-range: entry 100px; */
+    transform-origin: center;
+}
+#card1{
+    transform: translateX(-30vw);
+    animation: cardA linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+
+}
+#card2{
+    transform: translateX(-20vw);
+    animation: cardA linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+
+}
+#card3{
+    transform: translateX(-10vw);
+    animation: cardA linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+}
+#card4{
+    transform: translateX(10vw);
+    animation: cardB linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+
+}
+#card5{
+    transform: translateX(20vw);
+    animation: cardB linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+
+}
+#card6{
+    transform: translateX(30vw);
+    animation: cardB linear;
+    animation-timeline: view();
+    animation-range: entry exit;
+    opacity: 0;
+}
+
+
+@keyframes cardA {
+    5%{
+        opacity: 0;
+    }
+    85%{
+        transform: translateX(10vw);
+        opacity: 1;
+        scale: 1;
+       
+    }
+    100%{
+        transform: translateX(40vw);
+        opacity: 0;
+    }
+}
+
+
+@keyframes cardB {
+    5%{
+        opacity: 0;
+    }
+    85%{
+        transform: translateX(-10vw);
+        opacity: 1;
+        scale: 1;
+       
+    }
+    100%{
+        transform: translateX(-40vw);
+        opacity: 0;
+    }
+}
+
+ .cards img {
+    height: 25rem;
+    width: 100%;
+}
+
+ .cards h3 {
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+ .cards p {
+    line-height: 1;
+    font-size: 0.8rem;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    animation: circle-anim linear;
+    animation-timeline: view();
+    animation-range-start: entry 300px;
+    animation-range-end: exit -10px;
+    background-image: url("logo-avengers.jpg");
+    background-size: 100% 100%;
+    
+}
+@keyframes circle-anim {
+    from{
+        transform: rotate3d(1,1,1,0deg);
+        content: "lavi";
+    }
+    to{
+        content: "lovesh";
+        transform: rotate3d(1,1,1, 360deg);
+    }
+}
+
+.text-cont{
+    width: 80%;
+    height: 100vh;
+   
+}
+.text-cont h1{
+    color: #ffffff;
+}
+.text-cont p {
+    color: rgb(203, 200, 134);
+    font-size: 2rem;
+    padding: 1rem;
+    animation: text-ani linear;
+    transform-origin:center;
+    animation-timeline: view();
+    animation-range: entry exit;
+    
+    
+}
+@keyframes text-ani {
+    0%{
+        color: transparent;
+        scale: 0;
+    }
+    60%, 100% {
+        text-decoration: underline;
+        scale: 1;
+    }
+} 
+
+
+.horizontal{
+    width: 200%; 
+    height: 50vh;
+    overflow-x: auto;
+    background-color: aquamarine;
+    white-space: no-wrap;
+}
+.horizontal .slides{
+    width: 30rem;
+    height: 10rem;
+    background-color: tomato;
+}
+
+
+/* btn-css  */
+
+.scale-btn {
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #000000;
+    border: 2px solid #444444;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .scale-btn:hover {
+    transform: scale(1.1); 
+    background-color: #333333; 
+    box-shadow: 0 0 15px rgba(50, 50, 50, 0.8); 
+  }
+  
+  .scale-btn:active {
+    transform: scale(0.95); 
+    background-color: #222222; 
+    box-shadow: 0 0 20px rgba(185, 243, 255, 0.8); 
+  }
+
+  
+/* footer  */
+
+
+.footer-end {
+    background-color: #1c1c1c; 
+    color: #d3d3d3; 
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.footer-end a {
+    color: #f1f1f1;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-end a:hover {
+    color: #bcbcbc; 
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+.footer-end p {
+    margin: 5px 0;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.footer-end .social-icons {
+    margin-top: 10px;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.footer-end .social-icons a {
+    margin: 0 5px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.footer-end .social-icons a:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.loki-img {
+    font-size: 1rem;
+    background-image: url(loki-from-the-mcu-franchise.avif);
+    background-position: center;
+    text-align: justify;
+    position: relative;
+    padding: 3%;
+}
+
+.loki-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    pointer-events: none; 
+}
+.loki-img h1{
+    
+    margin-bottom: 1rem;
+}
+
